@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Enter Email address for verification</p>
+<input type="text" id="emailId"/>
+<input type="button" value="Validate Email" id="clickMe"/>
+<p id="hasValidEmail"></p>
+
+<script>
+
+document.getElementById("clickMe").onclick = function () {
+
+var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var isCorrectId = re.test(document.getElementById("emailId").value);
+
+document.getElementById("hasValidEmail").innerHTML = "Format Enterd Email id is " + isCorrectId ; 
+
+console.log(isCorrectId );
+};
+
+</script>
+
+</body>
+</html>
