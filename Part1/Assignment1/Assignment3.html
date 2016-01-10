@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form validation</title>
+    </head>
+    <body>
+        <div>
+            <h2>Fill the form</h2>
+            <form action="javascript:void(0)" method="POST" enctype="multipart/form-data">
+<div>
+                <label>Name: <input type="text" placeholder="Name" id="name" ></label> <br><br>
+                <label>Email: <input type="text" placeholder="Email" id="emailId">
+                </label><br><br>
+                <label>Phone: <input type="tel" placeholder="Phone" id="phone" ></label><br><br>
+                <label>Address: <input type="text" placeholder="Address" id="address"></label><br><br></div>
+<div>
+
+<button type="button" onclick="validateForm()">Validate</button>
+ </div>
+            </form>
+        </div>
+
+<p id="hasValidEmail"></p>
+<p id="hasValidForm"></p>
+
+<script>
+var formValidate=(function () {
+var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+var isFormValidate = false;
+
+
+
+return function ()
+{
+var isCorrectId = re.test(document.getElementById("emailId").value);
+document.getElementById("hasValidEmail").innerHTML = "Format Enterd Email id is " + isCorrectId ; 
+console.log(document.getElementById("name").value);
+if (document.getElementById("name").value !== "" && document.getElementById("emailId").value !== ""  && document.getElementById("phone").value !== "")
+{
+isFormValidate = true;
+}
+else {
+isFormValidate = false;
+}
+
+
+return isFormValidate;
+}
+}());
+
+
+function validateForm(){
+    document.getElementById("hasValidForm").innerHTML = "Form validation status is " + formValidate();
+
+}
+
+</script>
+    </body>
+</html>
