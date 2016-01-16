@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+Person Name is : <label id='lblName'></label><br>
+Person Email is : <label id='lblEmail'></label><br>
+Person Phone is : <label id='lblPhone'></label><br>
+
+<script>
+var person = {
+    firstName:"Ashish",
+    lastName:"Shukla",
+    email:"mrashish.shukla@outlook.com",
+    phone:"9990103133",
+    
+    getFullName: function (){
+    	return this.firstName + " " + this.lastName;
+    }
+}
+
+document.getElementById("lblName").innerHTML = person.getFullName();
+document.getElementById("lblEmail").innerHTML =  person.email;
+document.getElementById("lblPhone").innerHTML=  person.phone;
+</script>
+
+</body>
+</html>

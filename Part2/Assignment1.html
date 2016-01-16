@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<table>
+<tr><td>Available Employees: <label id="lblAvailableEmp"></td>
+
+<td><td>Selected Employees: <label id="lblSelectedEmp"></td>
+</tr>
+<tr>
+<td><section><input type="text" id="filter1" style="width:80%" placeholder="Filter"></td>
+<td></td>
+<td><section><input type="text" id="filter1" style="width:80%" placeholder="Filter"></td>
+</section>
+</tr>
+<tr>
+<td>
+<section><br><select id="lst1" size='12' style="width:80%">
+<option value='0'>Ashish Shukla</option>
+<option value='1'>Deepak Mishra</option>
+<option value='2'>Neeraj Kakkar</option>
+<option value='3'>Animesh Sharma</option>
+<option value='4'>Anil Singh</option>
+<option value='5'>Swapan Dutta</option>
+<option value='6'>Manish bangotra</option>
+<option value='7'>Lal Swain</option>
+<option value='8'>Prateek Verma</option>
+<option value='9'>Ashwini</option>
+<option value='10'>Vikas Yadav</option>
+</select></section></td>
+<td> <input type="button" name="Add" id="btnAdd" value=">>" onclick="addItems()">
+<br><br>
+<input type="button" name="Remove" id="btnRemove" value="<<" onclick="removeItems()">
+</td>
+<td><section><br><select id="lst2" size='12' style="width:80%">
+<option value='11'>Amit Julka</option>
+<option value='12'>Neeraj Kumar</option>
+</select></section></td>
+</tr>
+</table>
+<script>
+
+var addItems = (function() {
+	
+      var lst1 = document.getElementById("lst1");
+      var lst2 = document.getElementById("lst2");
+     return function shiftToRight(){
+      for (i=0;i<lst1.options.length;i++) {
+        if (lst1.options[i].selected) {
+         
+          var opt = lst1.options[i];
+          lst2.options[lst2.options.length] = new Option(opt.innerHTML, opt.value);
+          
+          lst1.options[i] = null;
+          i = i - 1;
+          }
+        }
+var lblAvailEmp = document.getElementById("lblAvailableEmp");
+   lblAvailEmp.innerHTML= " showing " + lst1.options.length;
+ var lblSelEmp = document.getElementById("lblSelectedEmp");
+   lblSelEmp .innerHTML= " showing " + lst2.options.length;
+      }
+  
+    })();
+    
+var removeItems= (function() {
+	
+      var lst1 = document.getElementById("lst1");
+      var lst2 = document.getElementById("lst2");
+      return function shiftToLeft(){
+      for (i=0;i<lst2.options.length;i++) {
+        if (lst2.options[i].selected) {        
+          var opt = lst2.options[i];
+          lst1.options[lst1.options.length] = new Option(opt.innerHTML, opt.value);
+          
+          lst2.options[i] = null;
+          i = i - 1;
+          }
+        }
+var lblAvailEmp = document.getElementById("lblAvailableEmp");
+   lblAvailEmp.innerHTML= " showing " + lst1.options.length;
+ var lblSelEmp = document.getElementById("lblSelectedEmp");
+   lblSelEmp .innerHTML= " showing " + lst2.options.length;
+      }
+    })();
+</script>
+</body>
+</html>
